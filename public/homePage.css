@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+
+.input{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+    text-align: -webkit-center; 
+    
+}
+.lable1{
+    padding: 10px;
+    display: flex;
+    font-size: 1.5rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+
+}
+.usr{
+    padding: 10px;
+    display: flex;
+}
+.btn{
+    padding: 10px;
+    display: flex;
+}

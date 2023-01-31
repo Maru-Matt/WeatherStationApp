@@ -1,0 +1,35 @@
+<%-include('header')%>
+<body>
+    <section class="screen-size">
+       
+            <div class="navbar-content">
+                <h4 class="groupName">ECE493 Weather Station and Control System Design</h4>
+            </div>
+        
+        <section class="heading">
+            <div class="heading-content">
+                <div class="alert alert-warning box" role="alert">
+                    <h5>The weather Condition in <%=city%></h5>
+                </div>
+                <div class="alert alert-info box1" role="alert">
+                    <h5>Condition: <%=condition%></h5>
+                </div>
+                <div class="alert alert-primary box1" role="alert">
+                    <h5>Temp: <%=temp%> °F</h5>
+                </div>
+                <div class="alert alert-secondary box1" role="alert">
+                   <h5>Humidity: <%=hum%> %</h5>
+                </div>
+                <div class="alert alert-success box1" role="alert">
+                     <h5>Air Pressure: <%=pre%> Phg</h5>
+                </div>
+                <div>
+                    <a class="btn btn-primary" href="/">Back</a>
+                </div>
+            </div>
+        </section>
+        
+    <%-include('footer')%>
+    
+</body>
+</html>
