@@ -30,3 +30,20 @@ body {
     padding: 10px;
     display: flex;
 }
+
+.err-txt{
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.err-txt h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+}
+.err-txt a{
+    margin-top: 30px;
+    width: fit-content;
+    padding: 10px 20px;
+}

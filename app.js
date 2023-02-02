@@ -33,24 +33,29 @@ app.post('/', function(req, res){
     const cityName = req.body.cityName;
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",US&units=imperial&appid=b305267cda331c2a895aa28567626dc6";
     https.get(url, function(response){
-    response.on('data', function(data){
-        const weatherData = JSON.parse(data);
-        const newData = Data({
-            city: cityName,
-            condition: weatherData.weather[0].description,
-            temp: weatherData.main.temp,
-            hum: weatherData.main.humidity,
-            pre: weatherData.main.pressure
-        })
-
-       newData.save();
-        res.render('index', {
-            city: cityName, 
-            condition: weatherData.weather[0].description,
-            temp: weatherData.main.temp,
-            pre: weatherData.main.pressure,
-            hum: weatherData.main.humidity
-        })
+    response.on('data', function(err, data){
+        if(!err){
+            const weatherData = JSON.parse(data);
+            const newData = Data({
+                city: cityName,
+                condition: weatherData.weather[0].description,
+                temp: weatherData.main.temp,
+                hum: weatherData.main.humidity,
+                pre: weatherData.main.pressure
+            })
+    
+           newData.save();
+            res.render('index', {
+                city: cityName, 
+                condition: weatherData.weather[0].description,
+                temp: weatherData.main.temp,
+                pre: weatherData.main.pressure,
+                hum: weatherData.main.humidity
+            })
+        } else{
+            res.render('invalid')
+        }
+        
     });
 });
 
