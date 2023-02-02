@@ -33,8 +33,8 @@ app.post('/', function(req, res){
     const cityName = req.body.cityName;
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",US&units=imperial&appid=b305267cda331c2a895aa28567626dc6";
     https.get(url, function(response){
-    response.on('data', function(err, data){
-        if(!err){
+    response.on('data', function(data){
+        if(response.statusCode == 200){
             const weatherData = JSON.parse(data);
             const newData = Data({
                 city: cityName,
@@ -50,7 +50,8 @@ app.post('/', function(req, res){
                 condition: weatherData.weather[0].description,
                 temp: weatherData.main.temp,
                 pre: weatherData.main.pressure,
-                hum: weatherData.main.humidity
+                hum: weatherData.main.humidity,
+                icon: "https://openweathermap.org/img/wn/"+weatherData.weather[0].icon+"@2x.png"
             })
         } else{
             res.render('invalid')
